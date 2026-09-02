@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { useMatch } from 'react-router-dom'
 
 import Home from './pages/student/Home'
 import CoursesList from './pages/student/CoursesList'
@@ -18,10 +19,10 @@ import StudentsEnrolled from './pages/educator/StudentsEnrolled'
 import Navbar from './components/student/Navbar'
 
 const App = () => {
+  const isEducatorRoute = useMatch('/educator/*');
   return (
     <div className="text-default min-h-screen bg-white">
-
-      <Navbar />
+      {!isEducatorRoute && <Navbar />}
 
       <Routes>
 
